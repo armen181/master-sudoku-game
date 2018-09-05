@@ -19,7 +19,19 @@ public class Run {
     public void start(ContextRefreshedEvent contextRefreshedEvent) {
 
         System.out.println("Hello");
-        System.out.println(gameService.generate(0));
+
+
+        for(int i =0; i<8 ;i++){
+            for (int j =0; j<8; j++){
+                System.out.printf(" "+gameService.generate(0).getMatrix()[i][j]+" ");
+
+            }
+            System.out.println(" ");
+
+        }
+
+        //System.out.println(gameService.generate(0).getMatrix()[0][5]+" = "+  gameService.generate(0).getMatrix()[0][6]);
+
 
 
 

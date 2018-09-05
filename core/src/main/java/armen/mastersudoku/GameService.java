@@ -9,6 +9,8 @@ public interface GameService {
 
     Sudoku generate(int mode);
 
+    Sudoku getAnswer();
+
     SudokuForm[][] getMatrix();
 
     SudokuForm getPoint(int x, int y);
