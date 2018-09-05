@@ -7,7 +7,7 @@ public interface GameService {
 
     SudokuForm[][] checkAnswer(int x, int y, int value);
 
-    SudokuForm[][] generate(int mode);
+    Sudoku generate(int mode);
 
     SudokuForm[][] getMatrix();
 
