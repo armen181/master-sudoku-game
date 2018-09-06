@@ -6,10 +6,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @Slf4j
 @SpringBootApplication
-public class Console {
+public class Main {
     public static void main(String[] args) {
         log.info("Stone Paper Scissors Game");
 
-        SpringApplication.run(Console.class, args);
+        SpringApplication.run(Main.class, args);
     }
 }

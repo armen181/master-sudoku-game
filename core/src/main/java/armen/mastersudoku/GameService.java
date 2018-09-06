@@ -3,17 +3,21 @@ package armen.mastersudoku;
 import armen.mastersudoku.util.SudokuForm;
 
 public interface GameService {
-    void init();
+    void initOrReset();
 
-    SudokuForm[][] checkAnswer(int x, int y, int value);
+    boolean checkAnswer(Sudoku sudoku);
 
-    Sudoku generate(int mode);
+    SudokuForm[][] setAnswer(int x, int y, int value);
+
+    Sudoku generate();
 
     Sudoku getAnswer();
 
-    SudokuForm[][] getMatrix();
+    SudokuForm[][] getPlayableMatrix(int mode);
 
     SudokuForm getPoint(int x, int y);
+
+
 
 
 
