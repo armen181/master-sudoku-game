@@ -32,7 +32,7 @@ public class GameServiceImpl implements GameService {
 
     @Override
     public SudokuForm[][] setAnswer(int x, int y, int value) {
-        sudokuForms[x][y]= new SudokuForm(value,false);
+        sudokuForms[x][y]= new SudokuForm(value,false, true);
         sudokuForms =chackTable(sudokuForms);
         return sudokuForms;
 
@@ -137,12 +137,12 @@ public class GameServiceImpl implements GameService {
                     for (int n : randomNumbers) {
                         if (n == f){
                             match = true;
-                            sudokuForms[x + (f % 3)][y + (f / 3)] = new SudokuForm(sudokuAll.getMatrix()[x + (f % 3)][y + (f / 3)], false);
+                            sudokuForms[x + (f % 3)][y + (f / 3)] = new SudokuForm(sudokuAll.getMatrix()[x + (f % 3)][y + (f / 3)], false, false);
                         }
                     }
                     if (!match) {
 
-                        sudokuForms[x + (f % 3)][y + (f / 3)] = new SudokuForm(0, false);
+                        sudokuForms[x + (f % 3)][y + (f / 3)] = new SudokuForm(0, false , true);
                     }
                 }
 

@@ -11,6 +11,7 @@
     <modules>
         <module>core</module>
         <module>consolTest</module>
+        <module>web</module>
     </modules>
 
     <parent>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game</title>
+    <meta charset="UTF-8">
+    <title id="title">Millioneire Game</title>
+    <script src="js/jquery.min.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/site.css" rel="stylesheet"/>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+</head>
+<body>
+
+<div class="row">
+    <div class="col-sm-2">
+
+    </div>
+    <!--<div class="col-sm-1">-->
+
+    <!--</div>-->
+    <div class="col-sm-7">
+
+        <div class="row top120 visible-xs "></div>
+
+    </div>
+
+    <div class="col-sm-3">
+        <div align="center"><h4>Լավագույն արդյունքները</h4></div>
+        <table class="table table-striped">
+            <thead>
+            <th scope="row">Անուն</th>
+            <th scope="row">Արդյունք</th>
+            </thead>
+            <tbody id="table">
+            <tr>
+                <td>Արմեն</td>
+                <td>1000000</td>
+            </tr>
+            <tr>
+                <td>Կարեն</td>
+                <td>1000000</td>
+            </tr>
+            <tr>
+                <td>Արսեն</td>
+                <td>500000</td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="form-group">
+                    <div class="col-sm-4">
+                    <h5 class="modal-title">Խաղը ավարտված է</h5>
+                </div> <div class="col-sm-8">
+                <h5 class="modal-title"  align="right">Ձեր արդյունքն է <a id="yourWinID">120</a> դրամ</h5>
+            </div>
+            </div>
+
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Անուն:</label>
+                    <div class="col-sm-5">
+                        <input type="text" id="nameForTable"/>
+                    </div>
+                    <button class="col-sm-4" id="saveNameBtn">Պահել արդյունքը</button>
+
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Փակել</button>
+        </div>
+    </div>
+</div>
+</div>
+
+
+</body>
+</html>

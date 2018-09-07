@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="consolTest" />
         <module name="core" />
+        <module name="web" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
