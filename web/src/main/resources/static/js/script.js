@@ -4,47 +4,29 @@ var endGame = false;
 var count = 0;
  $(document).ready(function () {
 
-     $("#saveNameBtn").click(function () {
-         //Send to DB and save name - score
-         $("#answerBtn2").addClass("invisible");
-         $('#exampleModal').modal('hide');
+     $("#btnForSudoku00, #btnForSudoku01,#btnForSudoku02, #btnForSudoku03, #btnForSudoku04, #btnForSudoku05,#btnForSudoku06,#btnForSudoku07,#btnForSudoku08, #btnForSudoku10, #btnForSudoku11,#btnForSudoku12, #btnForSudoku13, #btnForSudoku14, #btnForSudoku15,#btnForSudoku16,#btnForSudoku17,#btnForSudoku18,#btnForSudoku20, #btnForSudoku21,#btnForSudoku22, #btnForSudoku23, #btnForSudoku24, #btnForSudoku25,#btnForSudoku26,#btnForSudoku27,#btnForSudoku28, #btnForSudoku30, #btnForSudoku31,#btnForSudoku32, #btnForSudoku33, #btnForSudoku34, #btnForSudoku35,#btnForSudoku36,#btnForSudoku37,#btnForSudoku38,#btnForSudoku40, #btnForSudoku41,#btnForSudoku42, #btnForSudoku43, #btnForSudoku44, #btnForSudoku45,#btnForSudoku46,#btnForSudoku47,#btnForSudoku48,#btnForSudoku50, #btnForSudoku51,#btnForSudoku52, #btnForSudoku53, #btnForSudoku54, #btnForSudoku55,#btnForSudoku56,#btnForSudoku57,#btnForSudoku58,#btnForSudoku60, #btnForSudoku61,#btnForSudoku62, #btnForSudoku63, #btnForSudoku64, #btnForSudoku65,#btnForSudoku66,#btnForSudoku67,#btnForSudoku68, #btnForSudoku70, #btnForSudoku71,#btnForSudoku72, #btnForSudoku73, #btnForSudoku74, #btnForSudoku75,#btnForSudoku76,#btnForSudoku77,#btnForSudoku78,#btnForSudoku80, #btnForSudoku81,#btnForSudoku82, #btnForSudoku83, #btnForSudoku84, #btnForSudoku85,#btnForSudoku86,#btnForSudoku87,#btnForSudoku88"
+     ).click(function () {
+         alert($(this).attr("y")+"__" +$(this).attr("x"));
+
      });
 
 
 
-     $("#use50_50").click(function () {
-         var answer = $(this).val();
+     $("#start1").click(function () {
+         var answer = 1;
          var settings = {
              "async": true,
              "crossDomain": true,
-             "url": "answer",
+             "url": "startGame",
              "method": "POST",
              "headers": {
-                 "answer": answer
+                 "mode": answer
              }
          }
 
          $.ajax(settings).done(function (response) {
 
-             $('#questionTextarea').text(response.question);
-             if(response.answer_1=="_________"){
-                 $('#answerBtn1').text("-");
-                 $('#answerBtn1').prop('disabled', true);
-             }
-             if(response.answer_2=="_________"){
-                 $('#answerBtn2').text("-");
-                 $('#answerBtn2').prop('disabled', true);
-             }
-             if(response.answer_3=="_________"){
-                 $('#answerBtn3').text("-");
-                 $('#answerBtn3').prop('disabled', true);
-             }
-             if(response.answer_4=="_________"){
-                 $('#answerBtn4').text("-");
-                 $('#answerBtn4').prop('disabled', true);
-             }
-
-             $('#use50_50').prop('disabled', true);
+             console.log(response);
 
 
          });
@@ -215,3 +197,4 @@ var count = 0;
 
 
     });
+

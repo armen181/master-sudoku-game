@@ -5,3 +5,7 @@
 .top17 { margin-top:17px; }
 .top30 { margin-top:30px; }
 .top120 { margin-top:120px; }
+.border-color{
+    border-style: solid;
+    border-color: black;
+}
