@@ -210,6 +210,13 @@ public class GameServiceImpl implements GameService {
     }
 
     private SudokuForm[][] chackTable(SudokuForm[][] sudokuForm){
+
+        for(int i=0; i<9; i++){
+            for(int j=0;j<9;j++){
+                sudokuForm[i][j].setCorrect(false);
+            }
+        }
+
         for(int i=0; i<9; i++ ){
             List<SudokuForm> list = new ArrayList<>();
             for(int j=0; j<9; j++){

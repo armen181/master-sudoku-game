@@ -252,20 +252,20 @@
 
 
         <div class="btn-group">
-            <button type="button" class="form-control btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <button type="button" class="form-control btn btn-default dropdown-toggle" data-toggle="dropdown" id="startAll">
                 Սկսել խաղը <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" role="menu">
-                <li><a id="start1">Հեշտ</a></li>
-                <li><a id="start2">Միջին</a></li>
-                <li><a id="start3">Բարդ</a></li>
+                <li><a id="start1" val="1">Հեշտ</a></li>
+                <li><a id="start2" val="2">Միջին</a></li>
+                <li><a id="start3" val="3">Բարդ</a></li>
             </ul>
 
 
         </div>
-        <button class="btn btn-default" id="reLoad">Վերսկսել խաղը</button>
-        <button class="btn btn-default" id="end">Ավարտել խաղը</button>
-        <button class="btn btn-default pull-right" id="check">Ստուգել</button>
+        <button class="btn btn-default" id="reLoad" disabled>Վերսկսել խաղը</button>
+        <button class="btn btn-default" id="end" disabled>Ավարտել խաղը</button>
+        <button class="btn btn-default pull-right" id="check" disabled>Ստուգել</button>
 
 
     </div>
@@ -301,9 +301,45 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div id="btnModel" class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-5">
+                <div class="row ">
+                    <div class="btn-group btn-group-justified">
+                        <a type="button" class="btn btn-default" id="btn1" val="1">1</a>
+                        <a type="button" class="btn btn-default" id="btn2" val="2">2</a>
+                        <a type="button" class="btn btn-default" id="btn3" val="3">3</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="btn-group btn-group-justified">
+                        <a type="button" class="btn btn-default" id="btn4" val="4">4</a>
+                        <a type="button" class="btn btn-default" id="btn5" val="5">5</a>
+                        <a type="button" class="btn btn-default" id="btn6" val="6">6</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="btn-group btn-group-justified">
+                        <a type="button" class="btn btn-default" id="btn7" val="7">7</a>
+                        <a type="button" class="btn btn-default" id="btn8" val="8">8</a>
+                        <a type="button" class="btn btn-default" id="btn9" val="9">9</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-2"></div>
+            <!--<div class="modal-footer">-->
+            <div class="col-sm-3">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Փակել</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <div class="form-group">

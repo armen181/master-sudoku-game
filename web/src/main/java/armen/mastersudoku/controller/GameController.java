@@ -41,7 +41,14 @@ public class GameController {
     @PostMapping("startGame")
     public SudokuForm[][] getQuestion(@RequestHeader int mode){
       gameService.generate();
+     for(int i=0; i<9; i++){
+         for(int j=0;j<9;j++){
+             System.out.printf(" " + gameService.getPlayableMatrix(mode)[i][j].getValue() + " ");
 
+         }
+         System.out.println(" ");
+
+     }
 
       return gameService.getPlayableMatrix(mode);
     }
@@ -49,6 +56,19 @@ public class GameController {
   @PostMapping("setValue")
   public SudokuForm[][] getQuestion(@RequestHeader int x,@RequestHeader int y,@RequestHeader int value){
 
+
+
+        gameService.setAnswer(x,y,value);
+      System.out.println("x = "+ x +" y = " + y + " value = " + value);
+        for(int i=0; i<9; i++){
+          for(int j=0;j<9;j++){
+              System.out.printf(" " + gameService.getPlayableMatrix(1)[i][j].getValue() + " "
+              + gameService.getPlayableMatrix(2)[i][j].isCorrect()+"  " );
+
+          }
+          System.out.println(" ");
+
+      }
     return gameService.setAnswer(x,y,value);
   }
 
