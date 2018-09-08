@@ -1,8 +1,6 @@
 package armen.mastersudoku.controller;
 
 
-
-
 import armen.mastersudoku.GameService;
 import armen.mastersudoku.util.SudokuForm;
 import lombok.extern.slf4j.Slf4j;
@@ -12,19 +10,21 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Arrays;
+
 @Slf4j
 @RestController
 public class GameController {
 
 
-  // == field ==
+    // == field ==
 
 
-  private GameService gameService;
+    private GameService gameService;
 
 
-  private boolean status = false;
-  private boolean use50_50 = false;
+    private boolean status = false;
+    private boolean use50_50 = false;
 
 
     // == constructor ==
@@ -34,43 +34,32 @@ public class GameController {
     }
 
 
-
-
-
     // === RQ ===
     @PostMapping("startGame")
-    public SudokuForm[][] getQuestion(@RequestHeader int mode){
-      gameService.generate();
-     for(int i=0; i<9; i++){
-         for(int j=0;j<9;j++){
-             System.out.printf(" " + gameService.getPlayableMatrix(mode)[i][j].getValue() + " ");
-
-         }
-         System.out.println(" ");
-
-     }
-
-      return gameService.getPlayableMatrix(mode);
+    public SudokuForm[][] getQuestion(@RequestHeader int mode) {
+        gameService.generate();
+        return gameService.getPlayableMatrix(mode);
     }
 
-  @PostMapping("setValue")
-  public SudokuForm[][] getQuestion(@RequestHeader int x,@RequestHeader int y,@RequestHeader int value){
+    @PostMapping("setValue")
+    public SudokuForm[][] getQuestion(@RequestHeader int x, @RequestHeader int y, @RequestHeader int value) {
+        return gameService.setAnswer(x, y, value);
+    }
 
+    @PostMapping("reset")
+    public SudokuForm[][] initOrReset(@RequestHeader int mode) {
+        gameService.initOrReset();
+        gameService.generate();
+        return gameService.getPlayableMatrix(mode);
+    }
 
-
-        gameService.setAnswer(x,y,value);
-      System.out.println("x = "+ x +" y = " + y + " value = " + value);
-        for(int i=0; i<9; i++){
-          for(int j=0;j<9;j++){
-              System.out.printf(" " + gameService.getPlayableMatrix(1)[i][j].getValue() + " "
-              + gameService.getPlayableMatrix(2)[i][j].isCorrect()+"  " );
-
-          }
-          System.out.println(" ");
-
-      }
-    return gameService.setAnswer(x,y,value);
-  }
+    @GetMapping("end")
+    public SudokuForm[][] end() {
+        gameService.initOrReset();
+        SudokuForm sudokuForm = new SudokuForm(0,false,true);
+        SudokuForm[][]  array = new SudokuForm[][] {{sudokuForm,sudokuForm,sudokuForm,sudokuForm,sudokuForm,sudokuForm,sudokuForm,sudokuForm,sudokuForm},{sudokuForm,sudokuForm,sudokuForm,sudokuForm,sudokuForm,sudokuForm,sudokuForm,sudokuForm,sudokuForm},{sudokuForm,sudokuForm,sudokuForm,sudokuForm,sudokuForm,sudokuForm,sudokuForm,sudokuForm,sudokuForm},{sudokuForm,sudokuForm,sudokuForm,sudokuForm,sudokuForm,sudokuForm,sudokuForm,sudokuForm,sudokuForm},{sudokuForm,sudokuForm,sudokuForm,sudokuForm,sudokuForm,sudokuForm,sudokuForm,sudokuForm,sudokuForm},{sudokuForm,sudokuForm,sudokuForm,sudokuForm,sudokuForm,sudokuForm,sudokuForm,sudokuForm,sudokuForm},{sudokuForm,sudokuForm,sudokuForm,sudokuForm,sudokuForm,sudokuForm,sudokuForm,sudokuForm,sudokuForm},{sudokuForm,sudokuForm,sudokuForm,sudokuForm,sudokuForm,sudokuForm,sudokuForm,sudokuForm,sudokuForm},{sudokuForm,sudokuForm,sudokuForm,sudokuForm,sudokuForm,sudokuForm,sudokuForm,sudokuForm,sudokuForm}};
+        return array;
+    }
 
 
 }
